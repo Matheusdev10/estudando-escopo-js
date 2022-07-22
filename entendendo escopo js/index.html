@@ -1,0 +1,177 @@
+<script>
+
+
+//-------------------------ESCOPO VAR ---------------------------------------
+// var é global e local
+// local significa que é algo que é criado apenas 
+// dentro de um escopo ( os bigodes por exemplo é um escopo local)
+
+
+
+// console.log('>existe x antes do bloco?', x)
+
+ // nesse caso vai dar erro porque x nao foi definido
+
+//------------------------- ---------------------------------------
+
+
+// var x = 0
+// console.log('>existe x antes do bloco?', x)
+
+// nesse caso o o console.log vai exibir a mensagem pois o x foi definido no escopo global
+
+
+
+//------------------------- ---------------------------------------
+
+
+
+console.log('>existe x antes do bloco?', x)
+{
+    var x = 0
+}
+
+// nesse caso o x esta definido em um contexto local e mesmo assim o console.log
+//vai rodar a mensagem e falar que o valor de x é indefinido
+// isso se chama hoisting e o que ocorre é que a variavel x vai pra cima sem valor
+// olhe no exemplo a baixo como ocorre por de baixo dos panos
+
+
+// var x
+// console.log('>existe x antes do bloco?', x)
+
+// {
+//     x = 0
+// }
+
+// portanto é isso que acontece, o js joga a var pro escopo global
+// e por isso que a mensagem é mostrada mas dá que o valor é indefinido
+
+
+
+
+//-------------------------ESCOPO LET---------------------------------------
+
+// const e let são variaveis de escopo local ou seja, so funcionam
+// onde foram criadas ( segue os exemplos)
+
+// console.log('> existe y antes do bloco?', y)
+
+// nesse caso vai dar erro porque o y não foi definido
+
+
+//------------------------- ---------------------------------------
+
+
+// console.log('> existe y antes do bloco?', y)
+// {
+//    let y = 0  
+// }
+
+// Voces lembram que quando eu fazia isso com var não dava problema?
+//pois bem, com let não é bem assim pois, com ela não ocorre
+// o hoisting, ou seja, o let só vai funcionar 
+// no bloco que ela foi criada e por isso que esse codigo acima
+// dara erro
+
+//------------------------- ---------------------------------------
+
+
+
+
+// {
+//     console.log('> existe y antes do bloco?', y)
+//    let y = 0  
+// }
+
+// nesse caso ele sabe que existe y dentro do bloco
+// ou seja, ele sabe que y foi definido
+// porém não vai imprimir a mensagem pois
+// a mensagem é imprimida antes da variavel ser criada
+// por isso nao irá exibir a mensagem do console.log)
+
+
+// {
+  
+//    let y = 0  
+//    console.log('> existe y', y)
+// }
+
+// portanto pra exibir a mensagem esse seria o jeito certo
+// de fazer
+
+//------------------------- ---------------------------------------
+
+
+// {
+//     let y = 0
+//     console.log('> existe y', y)   
+// }
+
+// console.log('> existe y depois do bloco?', y)
+
+// nesse caso o segundo console.log que é
+// ( console.log('> existe y depois do bloco?', y)
+// não sera acessado pois como vimos o let é de escopo local
+// portanto, a segunda mensagem não aparecera e dará erro
+
+
+//------------------------- ---------------------------------------
+
+// let y = 1
+// {
+//      y = 0
+//     console.log('> existe y', y)   
+// }
+
+// console.log('> existe y depois do bloco?', y)
+
+// nesse caso o y sofrera reatribuição de valor
+// no primeiro caso eu crio uma variavel let y = 1
+// dentro do bloco eu reatribuo o y que eu criei
+// e com isso o valor de y passa a ser 0
+// portanto no console.log de baixo o y vai ter seu valor
+// reatribuido e portanto aparecerá 0
+// nesse caso de reatribuição de valor o y vai subir 
+// no escopo e procurar y para reatribuir o seu valor
+
+
+
+//-------------------------ESCOPO CONST ---------------------------------------
+
+// valor de constante nunca pode ser mudado
+
+
+// const y = 1
+// {
+//      y = 0
+//     console.log('> existe y', y)   
+// }
+
+// console.log('> existe y depois do bloco?', y)
+
+// nesse caso dará um erro pois a variavel const
+// foi atribuido como ( const y = 1)
+// quando eu tento reatribuir o valor de y no escopo local
+// dará um erro pois se a const y = 1 nasceu desse jeito
+// ela terá que morrer valendo 1
+// nunca poderei reatribuir valor a uma constante
+
+
+// const y = 1
+// {
+//      const y = 0
+//     console.log('> existe y', y)   
+// }
+
+// console.log('> existe y depois do bloco?', y)
+
+// dessa maneira não daria erro 
+// por mais que a const y foi criada duas vezes
+// ela esta em escopos diferentes
+// e, portanto, isso é possivel
+
+
+
+
+</script>
